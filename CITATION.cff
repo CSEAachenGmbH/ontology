@@ -1,0 +1,35 @@
+# This CITATION.cff file was generated with cffinit.
+
+cff-version: 1.2.0
+title: '.......'
+message: >-
+  Please cite this ontology using the metadata from
+  "preferred-citation".
+type: software
+authors:
+  - given-names: Tony
+    family-names: Amende
+    orcid: 'https://orcid.org/0009-0004-8705-4809'
+    email: tony.amende@gmail.com
+    affiliation: ...
+identifiers:
+  - type: url
+    value: '.......'
+    description: Ontology IRI
+repository-code: '.........'
+abstract: >-
+  Demonstrator Ontology
+keywords:
+  - ontology
+  - semantic
+  - product carbon footprint
+  - PCF
+license: MIT
+preferred-citation:
+  authors:
+    - family-names: Amende
+      given-names: Tony
+  title: "Product Carbon Footprint Model (PCF)"
+  type: generic
+  year: 2024
+  url: ......
