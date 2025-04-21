@@ -2,14 +2,19 @@ name: HTML
 permissions:
   id-token: write
   pages: write
+
+concurrency:  # <--- NEU
+  group: "pages"
+  cancel-in-progress: true
+
 on:
   push:
     branches:
       - main
-  workflow_dispatch:  # <--- Das ist neu und erlaubt den "Run workflow"-Button
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  github-pages:  # <--- HIER den Job umbenennen (wichtig!)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
