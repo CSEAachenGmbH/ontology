@@ -13,12 +13,10 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
-deployment: github-pages  # <--- DAS ist der letzte fehlende Baustein! 
-
 jobs:
-  github-pages:
+  github-pages:                            # <- WICHTIG: dieser Name wird von GitHub Pages erkannt
     runs-on: ubuntu-latest
-    environment: github-pages
+    environment: github-pages              # <- VERPFLICHTEND für Pages-Deploys!
     steps:
       - uses: actions/checkout@v3
         with:
