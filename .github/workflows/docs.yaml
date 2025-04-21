@@ -3,19 +3,20 @@ permissions:
   id-token: write
   pages: write
 
-concurrency:  # <--- NEU
-  group: "pages"
-  cancel-in-progress: true
-
 on:
   push:
     branches:
       - main
   workflow_dispatch:
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
-  github-pages:  # <--- HIER den Job umbenennen (wichtig!)
+  github-pages:
     runs-on: ubuntu-latest
+    environment: github-pages  # <--- das ist der wichtigste Zusatz!
     steps:
       - uses: actions/checkout@v3
         with:
