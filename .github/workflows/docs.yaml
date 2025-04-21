@@ -13,7 +13,7 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
-deployment: github-pages  # <--- DAS ist der letzte fehlende Baustein!
+deployment: github-pages  # <--- DAS ist der letzte fehlende Baustein! 
 
 jobs:
   github-pages:
