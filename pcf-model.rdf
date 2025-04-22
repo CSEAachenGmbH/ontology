@@ -1,26 +1,21 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://purls.helmholtz-metadaten.de/pcf#"
-     xml:base="https://purls.helmholtz-metadaten.de/pcf"
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:terms="http://purl.org/dc/terms/">
-    <owl:Ontology rdf:about="https://purls.helmholtz-metadaten.de/pcf">
-        <terms:creator rdf:resource="https://orcid.org/0009-0004-8705-4809"/>
-        <terms:description>The Product Carbon Footprint Model is a structured ontology to standardize the representation of carbon emissions associated with products throughout their lifecycle.</terms:description>
-        <terms:license rdf:resource="https://mit-license.org/"/>
-        <terms:title>Product Carbon Footprint Model (PCF)</terms:title>
-        <citation>Amende, T.</citation>
-    </owl:Ontology>
+     xmlns:matML="https://docs.oasis-open.org/materials/materials-matml-spec-pr-01.htm#"
+     xmlns:circle="https://cse.rwth-campus.com/circle/">
+    <Ontology rdf:about="https://cse.rwth-campus.com/circle/"/>
     
 
 
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
-    // Annotation properties
+    // Object Properties
     //
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
@@ -28,33 +23,119 @@
     
 
 
-    <!-- http://purl.org/dc/terms/creator -->
+    <!-- https://cse.rwth-campus.com/circle/consistsOf -->
 
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    <ObjectProperty rdf:about="https://cse.rwth-campus.com/circle/consistsOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://cse.rwth-campus.com/circle/MaterialObject"/>
+        <rdfs:range rdf:resource="https://cse.rwth-campus.com/circle/MaterialObject"/>
+    </ObjectProperty>
     
 
 
-    <!-- http://purl.org/dc/terms/description -->
+    <!-- https://cse.rwth-campus.com/circle/hasCO2Equivalent -->
 
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    <ObjectProperty rdf:about="https://cse.rwth-campus.com/circle/hasCO2Equivalent">
+        <rdfs:subPropertyOf rdf:resource="https://cse.rwth-campus.com/circle/hasCharacteristic"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://cse.rwth-campus.com/circle/UsedMaterial"/>
+        <rdfs:range rdf:resource="https://cse.rwth-campus.com/circle/CO2Equivalent"/>
+    </ObjectProperty>
     
 
 
-    <!-- http://purl.org/dc/terms/license -->
+    <!-- https://cse.rwth-campus.com/circle/hasCharacteristic -->
 
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    <ObjectProperty rdf:about="https://cse.rwth-campus.com/circle/hasCharacteristic">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://cse.rwth-campus.com/circle/UsedMaterial"/>
+        <rdfs:range rdf:resource="https://cse.rwth-campus.com/circle/MaterialCharacteristic"/>
+    </ObjectProperty>
     
 
 
-    <!-- http://purl.org/dc/terms/title -->
+    <!-- https://cse.rwth-campus.com/circle/hasCountryOfOrigin -->
 
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    <ObjectProperty rdf:about="https://cse.rwth-campus.com/circle/hasCountryOfOrigin">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://cse.rwth-campus.com/circle/UsedMaterial"/>
+    </ObjectProperty>
     
 
 
-    <!-- https://purls.helmholtz-metadaten.de/pcf#citation -->
+    <!-- https://cse.rwth-campus.com/circle/hasMaterial -->
 
-    <owl:AnnotationProperty rdf:about="https://purls.helmholtz-metadaten.de/pcf#citation"/>
+    <ObjectProperty rdf:about="https://cse.rwth-campus.com/circle/hasMaterial">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://cse.rwth-campus.com/circle/MaterialObject"/>
+        <rdfs:range rdf:resource="https://cse.rwth-campus.com/circle/UsedMaterial"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/hasQuantity -->
+
+    <ObjectProperty rdf:about="https://cse.rwth-campus.com/circle/hasQuantity">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://cse.rwth-campus.com/circle/MaterialObject"/>
+        <rdfs:range rdf:resource="https://cse.rwth-campus.com/circle/Quantity"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/hasReferenceWeight -->
+
+    <ObjectProperty rdf:about="https://cse.rwth-campus.com/circle/hasReferenceWeight">
+        <rdfs:domain rdf:resource="https://cse.rwth-campus.com/circle/RelativeWeight"/>
+        <rdfs:range rdf:resource="https://cse.rwth-campus.com/circle/AbsoluteWeight"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/requiresInformation -->
+
+    <ObjectProperty rdf:about="https://cse.rwth-campus.com/circle/requiresInformation">
+        <rdfs:domain rdf:resource="https://cse.rwth-campus.com/circle/CertificationSystem"/>
+        <rdfs:range rdf:resource="https://cse.rwth-campus.com/circle/MaterialCharacteristic"/>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/hasUnit -->
+
+    <DatatypeProperty rdf:about="https://cse.rwth-campus.com/circle/hasUnit">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/hasValue -->
+
+    <DatatypeProperty rdf:about="https://cse.rwth-campus.com/circle/hasValue">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/hasWeight -->
+
+    <DatatypeProperty rdf:about="https://cse.rwth-campus.com/circle/hasWeight">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://cse.rwth-campus.com/circle/MaterialObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>unit is &apos;kg&apos;</rdfs:comment>
+    </DatatypeProperty>
     
 
 
@@ -69,47 +150,377 @@
     
 
 
-    <!-- https://purls.helmholtz-metadaten.de/pcf#endoflife -->
+    <!-- https://cse.rwth-campus.com/circle/AbsoluteWeight -->
 
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/pcf#endoflife">
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/pcf#medicaldevice"/>
-        <rdfs:label xml:lang="en">End of Life</rdfs:label>
-    </owl:Class>
+    <Class rdf:about="https://cse.rwth-campus.com/circle/AbsoluteWeight">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/Weight"/>
+    </Class>
     
 
 
-    <!-- https://purls.helmholtz-metadaten.de/pcf#medicaldevice -->
+    <!-- https://cse.rwth-campus.com/circle/Biological -->
 
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/pcf#medicaldevice">
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/pcf#product"/>
-        <rdfs:label xml:lang="en">Medical Device</rdfs:label>
-    </owl:Class>
+    <Class rdf:about="https://cse.rwth-campus.com/circle/Biological">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/Classification"/>
+    </Class>
     
 
 
-    <!-- https://purls.helmholtz-metadaten.de/pcf#product -->
+    <!-- https://cse.rwth-campus.com/circle/CO2Equivalent -->
 
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/pcf#product">
-        <rdfs:label xml:lang="en">Product</rdfs:label>
-    </owl:Class>
+    <Class rdf:about="https://cse.rwth-campus.com/circle/CO2Equivalent">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/EnvironmentalImpact"/>
+    </Class>
     
 
 
-    <!-- https://purls.helmholtz-metadaten.de/pcf#productlife -->
+    <!-- https://cse.rwth-campus.com/circle/CertificationSystem -->
 
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/pcf#productlife">
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/pcf#medicaldevice"/>
-        <rdfs:label xml:lang="en">Product Life</rdfs:label>
-    </owl:Class>
+    <Class rdf:about="https://cse.rwth-campus.com/circle/CertificationSystem"/>
     
 
 
-    <!-- https://purls.helmholtz-metadaten.de/pcf#startofdesign -->
+    <!-- https://cse.rwth-campus.com/circle/Classification -->
 
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/pcf#startofdesign">
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/pcf#medicaldevice"/>
-        <rdfs:label xml:lang="en">Start of Design</rdfs:label>
-    </owl:Class>
+    <Class rdf:about="https://cse.rwth-campus.com/circle/Classification">
+        <equivalentClass>
+            <Class>
+                <unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://cse.rwth-campus.com/circle/Biological"/>
+                    <rdf:Description rdf:about="https://cse.rwth-campus.com/circle/Packaging"/>
+                    <rdf:Description rdf:about="https://cse.rwth-campus.com/circle/Technical"/>
+                </unionOf>
+            </Class>
+        </equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/MaterialCharacteristic"/>
+    </Class>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/CountryOfOrigin -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/CountryOfOrigin">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/MaterialCharacteristic"/>
+    </Class>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/DeclarationCode -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/DeclarationCode">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/MaterialCharacteristic"/>
+        <rdfs:comment>IEC 62474: Material Declaration for Products of and for the Electrotechnical Industry</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/ESRS -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/ESRS">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/CertificationSystem"/>
+        <rdfs:label>European Sustainability Reporting Standard</rdfs:label>
+        <rdfs:seeAlso>https://esrs-nachhaltigkeitsberichterstattung.de/</rdfs:seeAlso>
+    </Class>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/EngergyConsumption -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/EngergyConsumption">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/EnvironmentalImpact"/>
+    </Class>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/EnvironmentalImpact -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/EnvironmentalImpact">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/MaterialCharacteristic"/>
+    </Class>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/Material -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/Material">
+        <equivalentClass rdf:resource="https://docs.oasis-open.org/materials/materials-matml-spec-pr-01.htm#Material"/>
+    </Class>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/MaterialCharacteristic -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/MaterialCharacteristic"/>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/MaterialObject -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/MaterialObject"/>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/Packaging -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/Packaging">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/Classification"/>
+    </Class>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/Quantity -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/Quantity"/>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/RecyclableContent -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/RecyclableContent">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/EnvironmentalImpact"/>
+    </Class>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/RecycledContent -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/RecycledContent">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/EnvironmentalImpact"/>
+    </Class>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/RelativeWeight -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/RelativeWeight">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/Weight"/>
+    </Class>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/RoHS -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/RoHS">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/CertificationSystem"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="https://cse.rwth-campus.com/circle/requiresInformation"/>
+                <someValuesFrom rdf:resource="https://cse.rwth-campus.com/circle/Classification"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="https://cse.rwth-campus.com/circle/requiresInformation"/>
+                <someValuesFrom rdf:resource="https://cse.rwth-campus.com/circle/CountryOfOrigin"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>Restriction of Hazardous Substances</rdfs:label>
+        <rdfs:seeAlso>https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A02011L0065-20230901</rdfs:seeAlso>
+    </Class>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/Technical -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/Technical">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/Classification"/>
+    </Class>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/Toxicity -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/Toxicity">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/EnvironmentalImpact"/>
+    </Class>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/UsedMaterial -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/UsedMaterial">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/Material"/>
+    </Class>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/Volume -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/Volume">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/Quantity"/>
+    </Class>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/WaterConsumption -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/WaterConsumption">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/EnvironmentalImpact"/>
+    </Class>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/WaterEutrophication -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/WaterEutrophication">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/EnvironmentalImpact"/>
+    </Class>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/Weight -->
+
+    <Class rdf:about="https://cse.rwth-campus.com/circle/Weight">
+        <rdfs:subClassOf rdf:resource="https://cse.rwth-campus.com/circle/Quantity"/>
+    </Class>
+    
+
+
+    <!-- https://docs.oasis-open.org/materials/materials-matml-spec-pr-01.htm#Material -->
+
+    <Class rdf:about="https://docs.oasis-open.org/materials/materials-matml-spec-pr-01.htm#Material"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/Australia -->
+
+    <NamedIndividual rdf:about="https://cse.rwth-campus.com/circle/Australia">
+        <rdf:type rdf:resource="https://cse.rwth-campus.com/circle/CountryOfOrigin"/>
+    </NamedIndividual>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/China -->
+
+    <NamedIndividual rdf:about="https://cse.rwth-campus.com/circle/China">
+        <rdf:type rdf:resource="https://cse.rwth-campus.com/circle/CountryOfOrigin"/>
+    </NamedIndividual>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/Copper_CHN -->
+
+    <NamedIndividual rdf:about="https://cse.rwth-campus.com/circle/Copper_CHN">
+        <rdf:type rdf:resource="https://cse.rwth-campus.com/circle/UsedMaterial"/>
+        <circle:hasCountryOfOrigin rdf:resource="https://cse.rwth-campus.com/circle/China"/>
+    </NamedIndividual>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/Ferrule -->
+
+    <NamedIndividual rdf:about="https://cse.rwth-campus.com/circle/Ferrule">
+        <rdf:type rdf:resource="https://cse.rwth-campus.com/circle/MaterialObject"/>
+        <circle:consistsOf rdf:resource="https://cse.rwth-campus.com/circle/Isolator"/>
+        <circle:consistsOf rdf:resource="https://cse.rwth-campus.com/circle/Tube"/>
+    </NamedIndividual>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/Isolator -->
+
+    <NamedIndividual rdf:about="https://cse.rwth-campus.com/circle/Isolator">
+        <rdf:type rdf:resource="https://cse.rwth-campus.com/circle/MaterialObject"/>
+    </NamedIndividual>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/Tube -->
+
+    <NamedIndividual rdf:about="https://cse.rwth-campus.com/circle/Tube">
+        <rdf:type rdf:resource="https://cse.rwth-campus.com/circle/MaterialObject"/>
+        <circle:consistsOf rdf:resource="https://cse.rwth-campus.com/circle/TubeCopper"/>
+        <circle:consistsOf rdf:resource="https://cse.rwth-campus.com/circle/TubeGalvanizing"/>
+        <circle:hasWeight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.02</circle:hasWeight>
+    </NamedIndividual>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/TubeCopper -->
+
+    <NamedIndividual rdf:about="https://cse.rwth-campus.com/circle/TubeCopper">
+        <rdf:type rdf:resource="https://cse.rwth-campus.com/circle/MaterialObject"/>
+        <circle:hasMaterial rdf:resource="https://cse.rwth-campus.com/circle/Copper_CHN"/>
+    </NamedIndividual>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/TubeGalvanizing -->
+
+    <NamedIndividual rdf:about="https://cse.rwth-campus.com/circle/TubeGalvanizing">
+        <rdf:type rdf:resource="https://cse.rwth-campus.com/circle/MaterialObject"/>
+        <circle:hasMaterial rdf:resource="https://cse.rwth-campus.com/circle/Zinc_CHN"/>
+    </NamedIndividual>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/Zinc_AUS -->
+
+    <NamedIndividual rdf:about="https://cse.rwth-campus.com/circle/Zinc_AUS">
+        <rdf:type rdf:resource="https://cse.rwth-campus.com/circle/UsedMaterial"/>
+        <circle:hasCharacteristic rdf:resource="https://cse.rwth-campus.com/circle/Zinc_AUS_CO2Impact"/>
+        <circle:hasCountryOfOrigin rdf:resource="https://cse.rwth-campus.com/circle/Australia"/>
+    </NamedIndividual>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/Zinc_AUS_CO2Impact -->
+
+    <NamedIndividual rdf:about="https://cse.rwth-campus.com/circle/Zinc_AUS_CO2Impact">
+        <rdf:type rdf:resource="https://cse.rwth-campus.com/circle/CO2Equivalent"/>
+        <circle:hasUnit>eq. CO2 per kg</circle:hasUnit>
+        <circle:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">12.3</circle:hasValue>
+    </NamedIndividual>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/Zinc_CHN -->
+
+    <NamedIndividual rdf:about="https://cse.rwth-campus.com/circle/Zinc_CHN">
+        <rdf:type rdf:resource="https://cse.rwth-campus.com/circle/UsedMaterial"/>
+        <circle:hasCharacteristic rdf:resource="https://cse.rwth-campus.com/circle/Zinc_CHN_CO2Impact"/>
+        <circle:hasCountryOfOrigin rdf:resource="https://cse.rwth-campus.com/circle/China"/>
+    </NamedIndividual>
+    
+
+
+    <!-- https://cse.rwth-campus.com/circle/Zinc_CHN_CO2Impact -->
+
+    <NamedIndividual rdf:about="https://cse.rwth-campus.com/circle/Zinc_CHN_CO2Impact">
+        <rdf:type rdf:resource="https://cse.rwth-campus.com/circle/CO2Equivalent"/>
+        <circle:hasUnit>eq. CO2 per kg</circle:hasUnit>
+        <circle:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">45.6</circle:hasValue>
+    </NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://cse.rwth-campus.com/circle/Biological"/>
+            <rdf:Description rdf:about="https://cse.rwth-campus.com/circle/Packaging"/>
+            <rdf:Description rdf:about="https://cse.rwth-campus.com/circle/Technical"/>
+        </members>
+    </rdf:Description>
 </rdf:RDF>
 
 
