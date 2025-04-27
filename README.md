@@ -8,6 +8,8 @@ Afterwards, the contents of the docs folder are uploaded as an artifact and publ
 
 The generated documentation can be accessed at the following URL:
 https://cseaachengmbh.github.io/ontology/
+
+
 Technical Details
 
     Build tool: Widoco
