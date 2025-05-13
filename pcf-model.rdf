@@ -14,7 +14,7 @@
         <terms:description>The Product Carbon Footprint Model is a structured ontology to standardize the representation of carbon emissions associated with products throughout their lifecycle.</terms:description>
         <terms:license rdf:resource="https://mit-license.org/"/>
         <terms:title>Sustainability Data Model</terms:title>
-        <citation>Amende, T.</citation>
+        <citation>CSE Aachen GmbH</citation>
     </owl:Ontology>
 
 
