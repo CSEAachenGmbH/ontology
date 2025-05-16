@@ -51,8 +51,6 @@ This ensures that any changes made to the ontology are quickly reflected in the 
 
 ├── README.md
 
-├── docs/
-│   └── [Generated HTML documentation]
 
 └── pcf-model.rdf
 
